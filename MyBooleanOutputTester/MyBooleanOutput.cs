@@ -35,7 +35,7 @@ namespace MyBooleanOutputTester
         }
 
         public void SetParameters(string parameterNames, params int[] parameterValues)
-        {
+        { 
             if (Equation == null)
                 throw new Exception("Equation bos olamaz.");
 
@@ -93,7 +93,7 @@ namespace MyBooleanOutputTester
 
         private string Calculate(Stack<int> numbers, Stack<char> operators)
         {
-            int res = numbers.Pop();
+            int res = numbers.Pop(); 
             for (int i = 0; i < numbers.Count + operators.Count; i++)
             {
                 char op = operators.Pop();
@@ -109,7 +109,7 @@ namespace MyBooleanOutputTester
                     res = num1 == 49 && res == 49 ? 49 : 48;
                 }
             }
-            return ((char)res).ToString();
+            return ((char)res).ToString(); // 49 "1" 48 "0"
         }
 
         private bool IsOperator(char opt)

@@ -19,8 +19,8 @@ namespace MyBooleanOutputTester
 
         private void Tester_Load(object sender, EventArgs e)
         {
-            myBooleanOutput1.SetEquation("(a.b)+(b.a)");
-            myBooleanOutput1.SetParameters("ab", 1, 0);
+            myBooleanOutput1.SetEquation("0+0+a");
+            myBooleanOutput1.SetParameters("a", 1);
             bool result = myBooleanOutput1.GetResult();
 
             MessageBox.Show(result.ToString());

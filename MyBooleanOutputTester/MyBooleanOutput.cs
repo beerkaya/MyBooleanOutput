@@ -23,19 +23,22 @@ namespace MyBooleanOutputTester
         #region Properties
 
         public bool Result { get; private set; }
-        public string Equation { private get; set; }
+        public string Equation { private get; set; } = null;
 
         #endregion
 
         #region Methods
 
-        public void SetEq(string equation)
+        public void SetEquation(string equation)
         {
             this.Equation = equation;
         }
 
         public void SetParameters(string parameterNames, params int[] parameterValues)
         {
+            if (Equation == null)
+                throw new Exception("Equation bos olamaz.");
+
             for (int i = 0; i < parameterNames.Length; i++)
             {
                 Equation = Equation.Replace(parameterNames[i], Convert.ToChar(parameterValues[i].ToString()));
@@ -44,12 +47,18 @@ namespace MyBooleanOutputTester
 
         public bool GetResult()
         {
+            if (Equation == null)
+                throw new Exception("Equation bos olamaz.");
+
             string result = Postfix(Equation);
             return result == "1";
         }
 
         public bool GetResult(string equation)
         {
+            if (Equation == null)
+                throw new Exception("Equation bos olamaz.");
+
             string result = Postfix(equation);
             return result == "1";
         }

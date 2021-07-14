@@ -16,5 +16,14 @@ namespace MyBooleanOutputTester
         {
             InitializeComponent();
         }
+
+        private void Tester_Load(object sender, EventArgs e)
+        {
+            myBooleanOutput1.SetEquation("(a.b)+(b.a)");
+            myBooleanOutput1.SetParameters("ab", 1, 0);
+            bool result = myBooleanOutput1.GetResult();
+
+            MessageBox.Show(result.ToString());
+        }
     }
 }
